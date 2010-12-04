@@ -1,0 +1,11 @@
+*.toc
+*.snm
+*.nav
+*.out
+*.blg
+*.bbl
+.*.swp
+*.log
+*.aux
+octave-core
+core
