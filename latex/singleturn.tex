@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{a4wide}
+\usepackage[pdftex]{graphicx}
+\usepackage{subfigure}
+\usepackage[format=hang,labelfont=bf]{caption}
+\usepackage{listings}
+\usepackage{url}
+
+
+\lstloadlanguages{C}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	language=C,
+	numbers=left,
+        numberstyle=\footnotesize,
+        frame=l,
+	xleftmargin=1.5cm,
+        %frame=single,
+        tabsize=8,
+	keywordstyle=\bf,
+        emphstyle=\emph,
+        showstringspaces=false,
+        showspaces=false,
+}
+
+\input{commands.tex}
+
+\author{Roald Frederickx\\Kasper Meerts}
+%TODO: title...
+\title{Portable high energy magnetic field destructive single turn coil 
+apparatus}
+\date{December 10, 2010}
+
+\begin{document}
+\maketitle
+\input{abstract.tex}
+
+%\clearpage
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
