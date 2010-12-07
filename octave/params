@@ -1,0 +1,27 @@
+data = load("../rawData/080-shunt-I-7");
+
+alle punten:
+params =
+
+   2.1111e-07   5.6846e-03  -2.2222e-06   3.5414e-05
+
+   chisq =  2.9088e+00
+
+niet eerste honderd:
+params =
+
+   2.1111e-07   5.6846e-03  -2.2222e-06   3.5414e-05
+
+   chisq =  4.4394e-01
+
+
+
+vanaf 400 ptn
+isq =  0.35752
+octave:15> params 
+params =
+
+   2.1111e-07   5.6846e-03  -2.2222e-06   3.5414e-05
+
+
+
