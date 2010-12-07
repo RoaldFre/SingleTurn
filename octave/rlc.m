@@ -5,6 +5,6 @@ function [v, i] = rlc(R, L, C, V0, t)
 
 	v = V0 * exp(-w*z*t) .* (cos(wd * t) +
 			z/sqrt(1 - z*z) * sin(wd * t));
-	i = -C*V0*exp(-w*z*t) .* sin(wd * t) * (w*z^2/sqrt(1-z^2)+wd);
+	i = -C*V0*exp(-w*z*t) .* sin(wd * t) * w /sqrt(1-z^2);
 end
 
