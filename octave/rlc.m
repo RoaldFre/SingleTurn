@@ -1,10 +1,11 @@
-function [v, i] = rlc(R, L, C, V0, t)
-	w = 1/sqrt(L.*C);
-	z = R/(2*L*w);
+function [v, i] = rlc(L, R, deltat, V0, t)
+	C = 400e-6;
+	w = 1 / sqrt(L.*C);
+	z = R ./ (2 * L .* w);
 	wd = w * sqrt(1 - z.^2);
 
-	v = V0 * exp(-w*z*t) .* (cos(wd * t) +
-			z/sqrt(1 - z*z) * sin(wd * t));
-	i = -C*V0*exp(-w*z*t) .* sin(wd * t) * (w*z^2/sqrt(1-z^2)+wd);
+	t2 = t - deltat;
+	v = V0 * exp(-w*z*t2) .* (cos(wd * t2) +
+			z/sqrt(1 - z*z) * sin(wd * t2));
+	i = C*V0*exp(-w*z*t2) .* sin(wd * t2) * (w*z^2/sqrt(1-z^2)+wd);
 end
-
