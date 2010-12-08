@@ -1,4 +1,5 @@
 \section{Generation of magnetic fields}
+\subsection{History}
 
 Magnetic fields are of the utmost importance to the experimental physicist.  
 They are mostly used in conjunction with cryostats to research the properties 
@@ -9,23 +10,54 @@ generation methods. Various techniques have been summed up in table
 \ref{methodTable} together with their strongest produced fields 
 \cite{highPulsedMagnet} \cite{recordField}.
 
+Iron core electromagnets can only be used for fields up to 2 tesla, because the 
+material saturates at these flux densities. For this reason, most coils are 
+used without a core. The strongest permanent magnetic fields are generated 
+using superconducting electromagnets or a hybrid of both resistive and 
+superconductive magnets. As higher and higher fields are generated, 
+superconductors become unavailable because their conductive properties are lost 
+as the field crosses a critical value. Thus, to deal with the extremely high 
+heat that is generated, pulsed fields are used. Valuable data ought to be 
+collected in the small moment the magnetic field is present. \cite{herlach} 
+
 \begin{table}
+\begin{center}
 \caption{Various magnetic field generation methods}
 \label{methodTable}
-\begin{tabular}{l|l}
+\begin{tabular}{c|c}
 Method & Field (T) \\
-\hline
 \hline
 Permanent magnet & 1.25\\
 Resistive electromagnet & 36.2\\
 Hybrid electromagnet & 45\\
+Pulsed (non-destructively) & 89\\
 Explosive & 2800 \\
 \end{tabular}
+\end{center}
 \end{table}
 
-Iron core electromagnets can only be used for fields without saturating up to 
-2.16 Tesla \cite{ironSaturation}. For this reason, most coils are used without 
-a core. 
+\subsection{Single turn coil}
+
+The method for generating magnetic fields we researched is the ''single turn 
+coil'' method. As the name says, the coils used consist of a single loop of 
+metal. A capacitor (bank) is used to store electrical power which is released 
+into the circuit. The metal of which the coil is composed evaporates after a 
+few microseconds and after a short pause, the plasma of metal vapour starts to 
+conduct again. During the short period where coil stays more or less together, 
+a very high field is generated in the measurement ''chamber''. 
+
+The single turn coil method is unique among the destructive methods there isn't 
+any destruction in the sample space. After the violent explosion of the coil, 
+the material is driven outwards, directed entirely away from the sample space.  
+This makes repeated measurements possible as well as the possibility of using 
+cryostats. The expelled coil fragments move at dangerously high speeds and care 
+must be taken to protect apparatuses and personnel. \cite{singleTurn} 
+\cite{herlachArticle} During the experiments we performed, about 50 shots were 
+fired. The pickup-coil was protected by a thin sheet of Kapton that also served 
+as to insulate the coil. The sample space and coil suffered no damage at all.
+
+
+XXXXXXXXX ULTRA MOOIE FOTO XXXXXXXXXXXXXXX
 
 \section{RLC circuit theory}
 
@@ -39,7 +71,8 @@ the high applied voltages and currents and the frequencies at which we work,
 and the relatively low values of both values.
 
 Preliminary measurements showed that the system is very underdamped ($\zeta = 
-0.1$). The equation for the damped harmonic oscillator goes as follows
+0.1$). The equation for the damped harmonic oscillator goes as follows 
+\cite{serway}
 $$
 Q(t) = V_0 C e^{-\zeta \omega t} \left( \cos{\omega_d t} + \frac{\zeta} 
 {1-\zeta^2} \sin{\omega_d t}\right)
@@ -58,6 +91,7 @@ $$
 Differentiating this expression, one obtains the current
 
 $$
+\label{current}
 I(t) = \deriv{Q}{t} = -V_0 C \frac{\omega}{\sqrt{1-\zeta^2}} e^{-\zeta \omega 
 t} \sin{\omega_d t}
 $$
