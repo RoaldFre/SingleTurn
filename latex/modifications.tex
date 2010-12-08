@@ -60,9 +60,36 @@ probes}
 
 The voltage $V_1$ over the coil is measured with as little extra wire in 
 between as possible. The voltage $V_2$ is measured over a wire that is as 
-straight as possible, to minimize the inductance.
+straight as possible, to minimize the inductance. This setup offered more 
+reliable and correct measurements than the previous one.
+%XXX te vaag XXX
 
 \subsubsection{Getting the voltage down}
+Because the capacitor gets charged to 850\,V for the high energy pulses, 
+the voltage over the measuring points can get very high. In order to safely 
+measure this voltage, a custom voltage divider (figure \ref{Vdiv}) was 
+added for both measuring points.
+
+\fig[htb]{width=0.35\textwidth}{Vdiv}{Voltage divider}
+
+%XXX correct ??? XXX
+At first, we used values of $R_1 = 120\,\mathrm{k}\Omega CORRECT?$ and
+$R_2 = 15\,\mathrm{M}\Omega CORRECT?$, leading to a 126$\times$ reduction 
+in the measured voltage.
+
+At the highest possible voltage of 850\,V, these resistors would dissipate 
+about 0.06\,W.
+
+
+
+
+
+
+
+The input impedance of the used oscilloscope was 1\,M$\Omega$.
+
+
+we measure needs
 voltage divider
 
 \subsubsection{Effect of stray inductance on the measured current}
