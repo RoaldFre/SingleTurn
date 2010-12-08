@@ -13,7 +13,7 @@ Is = Is(start:end);
 
 plot(ts,Is/max(abs(Is)));
 
-Xv = 1/127;
+Xv = 1/46.5; %berekend, niet nagemeten
 V0 = 346;
 
 Ls  = linspace(1e-7, 3e-7, 10);

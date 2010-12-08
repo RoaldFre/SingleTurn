@@ -11,7 +11,7 @@ again\footnote{Interesting fact, the first few high current pulses after
 smoothing out the switch actually welded it shut. Both plates made contact 
 within a very small tolerance and a large surface area stuck together.}.
 
-The vise that holds the single turn coil also needed to get filed down, as 
+The vice that holds the single turn coil also needed to get filed down, as 
 it had gotten rough and showed several bumps, decreasing the effective 
 contact area.
 
@@ -24,4 +24,54 @@ wire. It has a diameter of about 4\,mm and consists of 10 turns of wire.
 The total equivalent calibrated surface area reads 136\,mm$^2$.
 
 \subsection{Measuring current through and voltage over the coil}
+The voltage over the coil can be measured straightforward by measuring over 
+both sides of the clamping vice. The current measurement is more difficult.  
+We opted for a simple and non-intrusive method. We measure the current by 
+measuring the voltage drop over a connecting wire that acts as a shunt 
+resistor.
+
+\subsubsection{Choosing measuring points}
+Care needs to be taken that both probe connections share the same ground.  
+If they don't, the oscilloscope that is used to read out the signal will 
+short out both grounds anyway. This will disturb the measurement and can 
+potentially send very large currents through the scope.
+
+Practically, the easy and tidy option was to choose both measureing points 
+as depicted in figure \ref{circuit-old}. The voltage over the coil is given 
+by $V_1$ and the current is proportional to (the negative of) $V_2$.
+
+\fig[htb]{width=0.55\textwidth}{circuit-old}{Initial setup of measuring 
+probes}
+
+However, as will be shown below [XXX section XXX], the (stray) inductance 
+of the connecting wires is much greater than the inductance of the single 
+turn coil. This means that the wire coming from the capacitor and leading 
+to the coil, and the wire from the switch to the coil both have a much 
+higher effect on the measured voltage than the single turn coil itself.  
+The resistance of the wires (which we actually use as a shunt for the 
+current reading!) also adds to the measured voltage.
+
+This effect skewed the measurements and was mitigated by choosing a 
+different placement of the probe connections. This setup is depicted in 
+figure \ref{circuit-new}.
+
+\fig[htb]{width=0.55\textwidth}{circuit-new}{Improved setup of measuring 
+probes}
+
+The voltage $V_1$ over the coil is measured with as little extra wire in 
+between as possible. The voltage $V_2$ is measured over a wire that is as 
+straight as possible, to minimize the inductance.
+
+\subsubsection{Getting the voltage down}
+voltage divider
+
+\subsubsection{Effect of stray inductance on the measured current}
+
+\subsubsection{Calibrating the current}
+
+\subsubsection{Effect of coax connector}
+impedance of voltage divider still too high?
+
+EERST MOTIVATIE UITLEGGEN, DIT IS ECHT WERKELIJKE BESCHRIJVING WAT EN HOE
+
 
