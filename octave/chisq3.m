@@ -1,6 +1,8 @@
 function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	%as, bs, cs, ds: arrays of parameter values
 
+	voltDiv = 838/18;
+
 	chsq = inf;
 	params=[0,0,0,0];
 
@@ -19,7 +21,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 					%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					[v, i] = rlc(a, b, c, V0, xs);
 					%            L  R  dt
-					ysmodel = i * d; %Xi
+					ysmodel = i * d / voltDiv; %Rshunt
 					%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					chsqnow = sum((ys-ysmodel).^2);
 					if (chsqnow < chsq)
@@ -38,6 +40,8 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 
 	chsqLimit = 2*chsq;
 
+
+
 	%UNCERTAINTIES
 	%start from ideal value, creep away by adding/subtracting X% until chisq doubles
 	
@@ -48,7 +52,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		a2 += aincr;
 		[v, i] = rlc(a2, b, c, V0, xs);
-		ysmodel = i * d;
+		ysmodel = i * d / voltDiv; %Rshunt
 	end
 	aupper = a2;
 	a2 = a;
@@ -56,7 +60,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		a2 -= aincr;
 		[v, i] = rlc(a2, b, c, V0, xs);
-		ysmodel = i * d;
+		ysmodel = i * d / voltDiv; %Rshunt
 	end
 	alower = a2;
 
@@ -68,7 +72,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		b2 += bincr;
 		[v, i] = rlc(a, b2, c, V0, xs);
-		ysmodel = i * d;
+		ysmodel = i * d / voltDiv; %Rshunt
 	end
 	bupper = b2;
 	b2 = b;
@@ -76,7 +80,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		b2 -= bincr;
 		[v, i] = rlc(a, b2, c, V0, xs);
-		ysmodel = i * d;
+		ysmodel = i * d / voltDiv; %Rshunt
 	end
 	blower = b2;
 
@@ -87,8 +91,8 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	ysmodel = ys; %hack for do-while
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		c2 += cincr;
-		[v, i] = rlc(a2, b, c, V0, xs);
-		ysmodel = i * d;
+		[v, i] = rlc(a, b, c2, V0, xs);
+		ysmodel = i * d / voltDiv; %Rshunt
 	end
 	cupper = c2;
 	c2 = c;
@@ -96,7 +100,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		c2 -= cincr;
 		[v, i] = rlc(a, b, c2, V0, xs);
-		ysmodel = i * d;
+		ysmodel = i * d / voltDiv; %Rshunt
 	end
 	clower = c2;
 
@@ -108,7 +112,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		d2 += dincr;
 		[v, i] = rlc(a, b, c, V0, xs);
-		ysmodel = i * d2;
+		ysmodel = i * d2 / voltDiv; %Rshunt
 	end
 	dupper = d2;
 	d2 = d;
@@ -116,14 +120,19 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	while sum((ys-ysmodel).^2) < chsqLimit;
 		d2 -= dincr;
 		[v, i] = rlc(a, b, c, V0, xs);
-		ysmodel = i * d2;
+		ysmodel = i * d2 / voltDiv; %Rshunt
 	end
 	dlower = d2;
 
-	err = [alower, a, aupper, (a - alower)/2/a + (aupper - a)/2/a];
-	err = [err; blower, b, bupper, (b - blower)/2/b + (bupper - b)/2/b];
-	err = [err; clower, c, cupper, (c - clower)/2/c + (cupper - c)/2/c];
-	err = [err; dlower, d, dupper, (d - dlower)/2/d + (dupper - d)/2/d];
+	da = ((a - alower) + (aupper - a))/2;
+	db = ((b - blower) + (bupper - b))/2;
+	dc = ((c - clower) + (cupper - c))/2;
+	dd = ((d - dlower) + (dupper - d))/2;
+
+	err = [     alower, a, aupper, da/a, da];
+	err = [err; blower, b, bupper, db/b, db];
+	err = [err; blower, c, cupper, dc/c, dc];
+	err = [err; blower, d, dupper, dd/d, dd];
 
 endfunction
 
