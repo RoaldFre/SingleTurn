@@ -90,7 +90,10 @@ of the voltage divider.
 
 We therefore choose to lower the values to $R_1 = 18\,\mathrm{k}\Omega?$ 
 and $R_2 = 820\,\mathrm{k}\Omega$. This gives a power dissipation of 1\,W 
-at peak voltage, still much lower than the power dissipated in the coil.
+at peak voltage, still much lower than the power dissipated in the coil.  
+The new voltage divider seems to mitigate the lagging and soft response of 
+the old one. The new factor is thus 46.6, which we shall call $\xi$ from 
+now on.
 
 
 
@@ -100,12 +103,77 @@ at peak voltage, still much lower than the power dissipated in the coil.
 The input impedance of the used oscilloscope was 1\,M$\Omega$.
 
 
-we measure needs
-voltage divider
 
 \subsubsection{Effect of stray inductance on the measured current}
+The current reading can still be affected by the stray inductance on the 
+wire that acts as a shunt. To estimate its effect, a seperate measurement 
+of the current was made by measuring the (full) voltage over a piece of 
+straight metal from the connector plate of the capacitor. This will 
+certainly have a low stray inductance.
+
+The result is shown in figure \ref{Ishunt}. The graphs were scaled so their 
+resemblence is more noticable.
+
+\figOctave[htb]{Ishunt}{Comparison of the used (shunt) cable (blue) with a 
+low-inductance shunt (red)}
+
+One notices that the graphs are very similar for high $t$, but in the 
+beginning the voltage over the low inductance shunt is lower. In the 
+beginning, there is a very rapid oscillation, with high $\derivs{I}{t}$ 
+hence the voltage over the high-inductance shunt will be relatively larger 
+than over the purely resistive shunt.
+
+Overall, we chose to continue using the shunt with this slight anomaly. A 
+better way would be to use a special low-inductance shunt, or to measure 
+the current in another manner.
+%XXX hall effect probe, pearson coil??
 
 \subsubsection{Calibrating the current}
+Because the resistance of the shunt is unknown, the current value needs to 
+be calibrated. Sustainably producing currents of the magnitude of a typical 
+pulse is not possible, so we cannot apply a known current and measure the 
+voltage over the shunt.
+
+We can, however, fit the measured voltage to the expected current in an RLC 
+circuit with a scaling factor that needs to be determined. This factor is 
+composed of the resistance of the shunt, scaled by the voltage divider). 
+
+The measurement was made without a single turn coil present, the vice was 
+closed so the only inductance that played a role was the total stray 
+inductance of the circuit. The capacitor was charged to 346\,V.
+
+The function that needs to be fitted is thus
+$$
+\Vshunt(t - \Delta t) = R_\mathrm s I(t) / \xi
+$$
+with $\xi = 46.6$ the reduction of our voltage divider and $I(t)$ given by 
+equation \ref{current} where $C$ is known to be 400\,$\mu$F and the value 
+of $V_0$ is known too (346\,V for the particular calibration measurement).
+
+We also incorporate a time difference to align the graph. The triggering of 
+the oscilloscope (the measured point $t = 0$ for $\Vshunt$) surely did not 
+happen at the exact moment the current started flowing (the point $t = 0$ 
+in the expression for $I(t)$). This $\Delta t$ is an extra factor that 
+needs to be fitted.
+
+The remaining factors that need to be fitted are $R_\mathrm s$ the 
+resistance of the shunt, $R$, the total resistance of the circuit and $L$, 
+the total inductance of the circuit.
+
+The fitting was done with a custom Octave script that does a $\chi^2$ 
+minimization. The results we got are
+$$
+L =
+$$
+
+
+
+
+
+
+
+
+
 
 \subsubsection{Effect of coax connector}
 impedance of voltage divider still too high?
