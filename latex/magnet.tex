@@ -26,3 +26,42 @@ Explosive & 2800 \\
 Iron core electromagnets can only be used for fields without saturating up to 
 2.16 Tesla \cite{ironSaturation}. For this reason, most coils are used without 
 a core. 
+
+\section{RLC circuit theory}
+
+The circuit containing the coil and the capacitator can be crudely modeled as a 
+RLC circuit. The value of $C$, the capacitance, was determined to be $400\,\mu 
+F$ with a multimeter, matching the given specification. The values for $R$ and 
+$L$, respectively the resistance and the self-inductance of the circuit are 
+nigh impossible to measure, as they vary considerably from values that can be 
+measured with our available measuring instruments. This is mainly because of 
+the high applied voltages and currents and the frequencies at which we work, 
+and the relatively low values of both values.
+
+Preliminary measurements showed that the system is very underdamped ($\zeta = 
+0.1$). The equation for the damped harmonic oscillator goes as follows
+$$
+Q(t) = V_0 C e^{-\zeta \omega t} \left( \cos{\omega_d t} + \frac{\zeta} 
+{1-\zeta^2} \sin{\omega_d t}\right)
+$$
+Where $Q$ is the charge in the capacitor in function of time, $V_0$ is the 
+initial voltage, $C$ is the capacitance, $\omega$ the undamped natural 
+frequency, $\zeta$ the damping factor and $\omega_d$ the damped natural 
+frequency defined as such
+
+$$
+\omega^2 = \frac{1}{LC} \qquad
+\zeta = \frac{R}{2L \omega} \qquad
+\omega_d = \omega \sqrt{1-\zeta^2}
+$$
+
+Differentiating this expression, one obtains the current
+
+$$
+I(t) = \deriv{Q}{t} = -V_0 C \frac{\omega}{\sqrt{1-\zeta^2}} e^{-\zeta \omega 
+t} \sin{\omega_d t}
+$$
+
+Using this expressions and the measured voltage over a shunt, we were able to 
+determine with some precision the effective self-inductance and resistance of 
+the circuit.
