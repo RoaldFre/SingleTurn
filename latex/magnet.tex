@@ -70,10 +70,10 @@ and the relatively low values of both values.
 Preliminary measurements showed that the system is very underdamped ($\zeta = 
 0.1$). The equation for the damped harmonic oscillator goes as follows 
 \cite{serway}
-$$
+\begin{equation}
 Q(t) = V_0 C e^{-\zeta \omega t} \left( \cos{\omega_d t} + \frac{\zeta} 
 {1-\zeta^2} \sin{\omega_d t}\right)
-$$
+\end{equation}
 Where $Q$ is the charge in the capacitor in function of time, $V_0$ is the 
 initial voltage, $C$ is the capacitance, $\omega$ the undamped natural 
 frequency, $\zeta$ the damping factor and $\omega_d$ the damped natural 
@@ -87,11 +87,11 @@ $$
 
 Differentiating this expression, one obtains the current
 
-$$
+\begin{equation}
 \label{current}
 I(t) = \deriv{Q}{t} = -V_0 C \frac{\omega}{\sqrt{1-\zeta^2}} e^{-\zeta \omega 
 t} \sin{\omega_d t}
-$$
+\end{equation}
 
 Using this expressions and the measured voltage over a shunt, we were able to 
 determine with some precision the effective self-inductance and resistance of 

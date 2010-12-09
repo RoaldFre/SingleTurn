@@ -24,11 +24,24 @@ wire. It has a diameter of about 4\,mm and consists of 10 turns of wire.
 The total equivalent calibrated surface area reads 136\,mm$^2$.
 
 \subsection{Measuring current and voltage over the coil}
+
 The voltage over the coil can be measured straightforward by measuring over 
-both sides of the clamping vice. The current measurement is more difficult.  
-We opted for a simple and non-intrusive method. We measure the current by 
+both sides of the clamping vice. The current measurement is more difficult.  We 
+opted for a simple and non-intrusive method. We measure the current by 
 measuring the voltage drop over a connecting wire that acts as a shunt 
 resistor.
+
+\subsubsection{Motivation}
+
+Knowledge of both the current through and the voltage over the coil allows us 
+to do measurements that weren't possible before. Multiplying both values gives 
+us the power dissipated or generated in the coil. The new measurements also 
+made it possible to analyse the current flowing through the plasma that is 
+formed after the coil evaporates. Finally, by fitting the data with a simple 
+RLC model, we are able to determine the characteristics of several electrical 
+components of the apparatus. Values for the total resistance ($R$) and 
+self-inductance ($L$) were figured out. This provides a way to improve the 
+circuit, as the inductance and resistance ought to be as small as possible.
 
 \subsubsection{Choosing measuring points}
 Care needs to be taken that both probe connections share the same ground.  
@@ -36,9 +49,9 @@ If they don't, the oscilloscope that is used to read out the signal will
 short out both grounds anyway. This will disturb the measurement and can 
 potentially send very large currents through the scope.
 
-Practically, the easy and tidy option was to choose both measureing points 
-as depicted in figure \ref{circuit-old}. The voltage over the coil is given 
-by $V_1$ and the current is proportional to (the negative of) $V_2$.
+Practically, the easy and tidy option was to choose both measuring points as 
+depicted in figure \ref{circuit-old}. The voltage over the coil is given by 
+$V_1$ and the current is proportional to (the negative of) $V_2$.
 
 \fig[htb]{width=0.55\textwidth}{circuit-old}{Initial setup of measuring 
 probes}
