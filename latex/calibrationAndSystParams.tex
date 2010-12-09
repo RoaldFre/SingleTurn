@@ -10,16 +10,17 @@ circuit with a scaling factor that needs to be determined. This factor is
 composed of the resistance of the shunt, scaled by the voltage divider. 
 
 The measurement was made without a single turn coil present. The vice was 
-just clamped together. The only inductance that played a role was the total 
-stray inductance of the circuit. The capacitor was charged to 346\,V.
+just clamped together. Thus, the only inductance that played a role was the 
+total stray inductance of the circuit. Several measurements were made with 
+different initial voltages on the capacitor.
 
 The function that needs to be fitted is thus
 $$
 \Vshunt(t - \Delta t) = R_\mathrm s I(t) / \xi
 $$
 with $\xi = 46.6$ the reduction of our voltage divider and $I(t)$ given by 
-equation \ref{current} where $C$ is known to be 400\,$\mu$F and the value 
-of $V_0$ is known too (346\,V for the particular calibration measurement).
+equation \ref{current} where $C$ is known to be 400\,$\mu$F and the initial 
+voltage over the capacitor $V_0$ is known too.
 
 We also incorporate a time difference to align the graph. The triggering of 
 the oscilloscope (the measured point $t = 0$ for $\Vshunt$) surely did not 
@@ -32,19 +33,33 @@ resistance of the shunt, $R$, the total resistance of the circuit and $L$,
 the total inductance of the circuit.
 
 The fitting was done with a custom Octave script that does a $\chi^2$ 
-minimization. The results we got are
+minimization. The results we got are tabulated below, where the value of 
+$\Delta t$ is omitted because it serves no meaning (it is merely dependent 
+on when the osilloscope triggered).
 $$
-L = (212 \pm 6)\,\mathrm{nH}
-\qquad
-R = (5.2 \pm 0.7)\,\mathrm{m}\Omega
-\qquad
-\Rshunt = (1.5 \pm 0.2)\,\mathrm{m}\Omega
+\begin{array}{c|c|c|c}
+V_0 (\mathrm V)&
+	L (\mu\mathrm H)&
+			R (\mathrm m \Omega)&
+				\Rshunt (\mathrm m \Omega)\\\hline
+71&	0.83 \pm 0.06&	12 \pm 3&	43 \pm 8\\
+100&	0.84 \pm 0.03&	8.9 \pm 1.3&	9.0 \pm 1.1\\
+200&	0.82 \pm 0.01&	8.3 \pm 0.6&	5.3 \pm 0.3\\
+400&	0.82 \pm 0.01&	7.1 \pm 0.6&	2.0 \pm 0.1\\
+800&	0.82 \pm 0.01&	7.7 \pm 0.7&	1.12 \pm 0.09\\
+\end{array}
 $$
-with a $\Delta t$ of $(-2.4 \pm 0.9)\mu\mathrm s$.
 
+We find that the value of $L$ is constant throughout the voltage regime, as 
+expected. The resistance of the circuit on the other hand, seems to 
+decrease as the pulse becomes stronger. Even more worrying is the fact that 
+our $\Rshunt$ exceeds the total resistance. This is likely caused by 
+parasitic impedances in the cabling and the measurement circuit. The value 
+of $\Rshunt$ should therefore not be looked at as a real resistance, but 
+merely as a factor that describes the total effect of various impedances on 
+the amplitude of the measured voltage. This is all we need in order to 
+calculate a current amplitude from a voltage reading.
 
-
-
-
+WHYYYYYY???
 
 % vim: ft=tex

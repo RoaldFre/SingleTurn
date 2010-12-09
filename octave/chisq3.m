@@ -41,7 +41,6 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 	chsqLimit = 2*chsq;
 
 
-
 	%UNCERTAINTIES
 	%start from ideal value, creep away by adding/subtracting X% until chisq doubles
 	

@@ -24,6 +24,10 @@ voltDiv = 838/18;
 start = 281; % precies begin
 %start = 400;
 
+Is = Is - mean(Is(1:100));
+fullIs = Is;
+fullts = ts;
+
 ts = ts(start:end);
 Is = Is(start:end);
 
@@ -36,10 +40,10 @@ dts = linspace(-5, 5, 10) * 1e-6;
 Rshunts = linspace(0.5e-3, 4e-3, 10);
 
 %geeft resultaat voor shunt-9
-Ls  = linspace(4.7e-7, 8.5e-7, 15);
-Rs  = linspace(0.1e-3, 86e-3, 15);
-dts = linspace(-15, 15, 20) * 1e-6;
-Rshunts = linspace(0.1e-3, 54e-3, 15);
+Ls  = linspace(7.7e-7, 8.9e-7, 25);
+Rs  = linspace(1.1e-3, 26e-3, 25);
+dts = linspace(-15, 0, 20) * 1e-6;
+Rshunts = linspace(1.1e-3, 24e-3, 25);
 
 
 format short e;
