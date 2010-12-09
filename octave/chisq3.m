@@ -40,7 +40,6 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 
 	chsqLimit = 2*chsq;
 
-return
 
 
 	%UNCERTAINTIES
