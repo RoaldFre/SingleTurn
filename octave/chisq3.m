@@ -40,6 +40,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 
 	chsqLimit = 2*chsq;
 
+return
 
 
 	%UNCERTAINTIES
@@ -131,8 +132,8 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 
 	err = [     alower, a, aupper, da/a, da];
 	err = [err; blower, b, bupper, db/b, db];
-	err = [err; blower, c, cupper, dc/c, dc];
-	err = [err; blower, d, dupper, dd/d, dd];
+	err = [err; clower, c, cupper, dc/c, dc];
+	err = [err; dlower, d, dupper, dd/d, dd];
 
 endfunction
 

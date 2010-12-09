@@ -23,7 +23,7 @@ The new coil was wound from a slightly thicker and less brittle copper
 wire. It has a diameter of about 4\,mm and consists of 10 turns of wire. 
 The total equivalent calibrated surface area reads 136\,mm$^2$.
 
-\subsection{Measuring current through and voltage over the coil}
+\subsection{Measuring current and voltage over the coil}
 The voltage over the coil can be measured straightforward by measuring over 
 both sides of the clamping vice. The current measurement is more difficult.  
 We opted for a simple and non-intrusive method. We measure the current by 
@@ -123,24 +123,52 @@ beginning, there is a very rapid oscillation, with high $\derivs{I}{t}$
 hence the voltage over the high-inductance shunt will be relatively larger 
 than over the purely resistive shunt.
 
-Overall, we chose to continue using the shunt with this slight anomaly. A 
-better way would be to use a special low-inductance shunt, or to measure 
+There also appears a phase difference, where the low-inductance shunt 
+precedes the voltage over the full cable. This is once again because of 
+(complex) impedance differences between the two. It seems that it is 
+\emph{very} hard to get any reliable measurement of the phase between 
+several signals on these timescales and in these environments with our 
+available equipment.
+
+Overall, we chose to continue using the shunt with this slight anomaly.  A 
+better way would be to use a dedicated low-inductance shunt, or to measure 
 the current in another manner.
 %XXX hall effect probe, pearson coil??
 
+
+
 \subsubsection{Calibrating the current}
 Because the resistance of the shunt is unknown, the current value needs to 
-be calibrated. Sustainably producing currents of the magnitude of a typical 
-pulse is not possible, so we cannot apply a known current and measure the 
-voltage over the shunt.
+be calibrated. We can do this by fitting the current of an RLC circuit to 
+the measured signal.
+
+This will also allow us to find other relevant parameters such as the total 
+inductance and resistance of the circuit and hence is attributed a separate 
+section below, section \ref{secIcalib}.
+
+
+
+
+
+
+
+
+
+
+
+\section{Calibrating the current and fitting system parameters 
+\label{secIcalib}}
+Sustainably producing currents of the magnitude of a typical pulse is not 
+possible, so we cannot apply a known current and measure the voltage over 
+the shunt to calibrate the current reading.
 
 We can, however, fit the measured voltage to the expected current in an RLC 
 circuit with a scaling factor that needs to be determined. This factor is 
-composed of the resistance of the shunt, scaled by the voltage divider). 
+composed of the resistance of the shunt, scaled by the voltage divider. 
 
-The measurement was made without a single turn coil present, the vice was 
-closed so the only inductance that played a role was the total stray 
-inductance of the circuit. The capacitor was charged to 346\,V.
+The measurement was made without a single turn coil present. The vice was 
+just clamped together. The only inductance that played a role was the total 
+stray inductance of the circuit. The capacitor was charged to 346\,V.
 
 The function that needs to be fitted is thus
 $$
@@ -163,8 +191,13 @@ the total inductance of the circuit.
 The fitting was done with a custom Octave script that does a $\chi^2$ 
 minimization. The results we got are
 $$
-L =
+L = (212 \pm 6)\,\mathrm{nH}
+\qquad
+R = (5.2 \pm 0.7)\,\mathrm{m}\Omega
+\qquad
+\Rshunt = (1.5 \pm 0.2)\,\mathrm{m}\Omega
 $$
+with a $\Delta t$ of $(-2.4 \pm 0.9)\mu\mathrm s$.
 
 
 
@@ -174,10 +207,4 @@ $$
 
 
 
-
-\subsubsection{Effect of coax connector}
-impedance of voltage divider still too high?
-
-EERST MOTIVATIE UITLEGGEN, DIT IS ECHT WERKELIJKE BESCHRIJVING WAT EN HOE
-
-
+% vim: ft=tex
