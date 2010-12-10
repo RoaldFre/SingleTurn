@@ -1,12 +1,35 @@
 \section{Results}
 After having adapted the apparatus with the extra measuring capabilities, 
-we performed some standard measurements of the maximum magnetic field. We 
-also used the added $V$ and $I$ readings to XXXXXXXXXXXXXXXXXXXXX.
-%XXX plasma stroom, vermogen
+we performed some standard measurements of the maximum magnetic field. We also 
+used the added $V$ and $I$ readings in a failed attempt to measure the power.
 
 Because modifying the apparatus took up quite a bit of time, the 
 measurements below are not as thorough as we preferred. We chose to touch 
 several small topics that can be investigated further in the future.
+
+\subsection{Power dissipated in the coil}
+
+Using the values calibrated in the previous section, one can easily calculate 
+the power dissipated or generated in the coil by multiplying them ($P = VI$).  
+Doing this presents us with a plot like figure \ref{power}
+
+Although at first sight, these results look sensible, when we integrate the 
+power over time to find the total dissipated energy, we find that it is a 
+multiple of the energy stored in the capacitor! As this is physically 
+impossible, we have to conclude that either the voltage over or the current 
+through the coil is measured incorrectly. Since the voltage is measured 
+directly, the current is probably not completely right. Our experience showed 
+that shifting the cables around a bit often could change the phase of the 
+measured signal varies a considerable amount. Another problem is that the shunt 
+used consists of a piece of wire that has some unnegligible self-inductance, 
+meaning that it is not a linear component and thus can't be modeled as such.
+
+Although we can only determine some qualitative behaviour, we're sure that if a 
+method is used to determine the current with some degree of confidence, the 
+power can certainly be determined as well.
+
+\figOctave{power}{Power dissipated in the coil and plasma. Incorrect because 
+more energy is dissipated than is available in the capacitor}
 
 \subsection{Magnetic field in function of the width of the coil}
 One expects to find an optimal value of the coil width. Too narrow a coil 
@@ -15,7 +38,7 @@ can cause the metal to melt and evaporate before the maximum field strength
 is reached. A very wide coil will distribute its magnetic energy over a 
 large volume, thus loosing efficiency.
 
-The magnetic field of 23 measurements at maximum voltage was recorded. The 
+The magnetic field of 28 measurements at maximum voltage was recorded. The 
 results of these measurements are displayed in figure \ref{BvasteV}. The 
 magnetic field is rendered in function of the width of the coil. Although 
 we expected there to be an optimal coilwidth, we can discern no correlation 
@@ -27,12 +50,23 @@ to determine any relation.
 
 \subsection{Magnetic field in function of the bank voltage}
 
-The same 23 measurements are displayed in figure \ref{BvasteD}. This time, the 
-magnetic field is rendered in function of the voltage of the capacitor.  
-Although no real relationship can be determined, it is clear that a higher 
-voltage usually results in a stronger field.
+We also resarched the relationship between peak field and voltage of the 
+capacitor bank. Measurements with a coil width of 6$\pm$1\,cm were selected and 
+rendered in figure \ref{BvasteD}. The peak magnetic field is displayed in 
+function of the voltage of the capacitor. Although no real relationship can be 
+determined, it is clear that a higher voltage usually results in a stronger 
+field.
 
 \figOctave{BvasteD}{Magnetic field in function of the bank voltage}
+
+\subsection{Peak field}
+
+In total, we did 28 measurements at maximum capacitor voltage. Of these, 10 
+reached magnetic field strengths of over 1 tesla. Because we couldn't research 
+every parameter that could change the magnetic field, we didn't find a 
+procedure to consistently generate such high fields. Although we lack some 
+control, high fields were succesfully achieved in more than 60\% of the 
+experiments.
 
 \subsection{Plasma conduction}
 
@@ -62,10 +96,10 @@ current (green) starts to flow.}
 
 Coils made from copper (Cu) and aluminium (Al) were tested. The copper sheet 
 was at 0.5\,mm a lot thicker than the aluminium foil of only 15\,$\mu$m.  
-Nevertheless, the piek fields achieved with aluminium were as high as they were 
+Nevertheless, the peak fields achieved with aluminium were as high as they were 
 with copper. The experiments with copper were a lot more consistent as it 
 seemed the brittle aluminium got tore off by the magnetic stress too soon, 
-before piek fields were achieved. Evidence of this is visible in figures 
+before peak fields were achieved. Evidence of this is visible in figures 
 \ref{plasma1} and \ref{plasma2}: the field was increasing and clearly hadn't 
 reached it peak at the moment the coil disintegrated and a plasma was formed.  
 Sadly, the plasma never was good enough a conductor or appeared too late for it 
