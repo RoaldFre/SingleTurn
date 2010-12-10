@@ -1,37 +1,21 @@
 \section{Results}
+
 After having adapted the apparatus with the extra measuring capabilities, 
-we performed some standard measurements of the maximum magnetic field. We also 
-used the added $V$ and $I$ readings in a failed attempt to measure the power.
+we performed some standard measurements of the maximum magnetic field. We 
+also used the added $V$ and $I$ readings in an attempt to measure a few 
+other phenomena such as the current conduction in the plasma after a coil 
+breaks, the coil deformation and the power dissipated by the coil and 
+plasma.
 
 Because modifying the apparatus took up quite a bit of time, the 
 measurements below are not as thorough as we preferred. We chose to touch 
-several small topics that can be investigated further in the future.
+several small topics, some of which are only possible after our 
+modifications. These topics can be investigated further and in more depth 
+in the future.
 
-\subsection{Power dissipated in the coil}
-
-Using the values calibrated in the previous section, one can easily calculate 
-the power dissipated or generated in the coil by multiplying them ($P = VI$).  
-Doing this presents us with a plot like figure \ref{power}
-
-Although at first sight, these results look sensible, when we integrate the 
-power over time to find the total dissipated energy, we find that it is a 
-multiple of the energy stored in the capacitor! As this is physically 
-impossible, we have to conclude that either the voltage over or the current 
-through the coil is measured incorrectly. Since the voltage is measured 
-directly, the current is probably not completely right. Our experience showed 
-that shifting the cables around a bit often could change the phase of the 
-measured signal varies a considerable amount. Another problem is that the shunt 
-used consists of a piece of wire that has some unnegligible self-inductance, 
-meaning that it is not a linear component and thus can't be modeled as such.
-
-Although we can only determine some qualitative behaviour, we're sure that if a 
-method is used to determine the current with some degree of confidence, the 
-power can certainly be determined as well.
-
-\figOctave{power}{Power dissipated in the coil and plasma. Incorrect because 
-more energy is dissipated than is available in the capacitor}
 
 \subsection{Magnetic field in function of the width of the coil}
+
 One expects to find an optimal value of the coil width. Too narrow a coil 
 will experience a lot of Joule heating because of its high resistance. This 
 can cause the metal to melt and evaporate before the maximum field strength 
@@ -48,6 +32,7 @@ to determine any relation.
 
 \figOctave{BvasteV}{Magnetic field in function of the coildwidth}
 
+
 \subsection{Magnetic field in function of the bank voltage}
 
 We also resarched the relationship between peak field and voltage of the 
@@ -59,50 +44,176 @@ field.
 
 \figOctave{BvasteD}{Magnetic field in function of the bank voltage}
 
+
 \subsection{Peak field}
 
 In total, we did 28 measurements at maximum capacitor voltage. Of these, 10 
-reached magnetic field strengths of over 1 tesla. Because we couldn't research 
-every parameter that could change the magnetic field, we didn't find a 
-procedure to consistently generate such high fields. Although we lack some 
-control, high fields were succesfully achieved in more than 60\% of the 
-experiments.
+reached magnetic field strengths of over 1 tesla. Because we couldn't 
+sufficiantly research every parameter that could change the magnetic field, 
+we didn't find a procedure to consistently generate such high fields.  
+Although we lack some control, high fields were succesfully achieved in 
+more than 60\% of the experiments with a maximum at 2.7\,T.
 
-\subsection{Plasma conduction}
-
-A few microseconds after the coil is violently destroyed, a plasma is formed 
-because of the strong electric field. This plasma of metal vapour starts to 
-conduct a short time later. We have observed this phenomenon a few times and an 
-exampe has been plotted in figure \ref{plasma1}. Around zero time the magnetic 
-field collapses as the coil disintegrates. The strong back emf turns the 
-current around for a very short period. After that, the plasma current starts 
-to flow. Notice that the magnetic field doesn't collapse as fast anymore as the 
-new current keeps it up. The characteristic kink in the current is present 
-again.
-
-\fig{width=0.95\textwidth}{plasmaArc}{Long exposure of the plasma during a 
-high energy pulse through an aluminum foil coil. The yellow colour of the 
-plasma is partly due to the yellow plastic used to block excess light and 
-protect the camera sensor.}
-
-\figOctave{plasma1}{An example of plasma conduction. The magnetic field (blue) 
-collapses at 0 as the coil disintegrates. A few moments later, the plasma 
-current (green) starts to flow.}
-
-\figOctave{plasma2}{Another example of plasma conduction. The magnetic field 
-(blue) is plotted against the time. Note the kink in the current (green).}
 
 \subsection{Choice of material}
 
 Coils made from copper (Cu) and aluminium (Al) were tested. The copper sheet 
 was at 0.5\,mm a lot thicker than the aluminium foil of only 15\,$\mu$m.  
-Nevertheless, the peak fields achieved with aluminium were as high as they were 
-with copper. The experiments with copper were a lot more consistent as it 
+Nevertheless, the peak fields achieved with aluminium were as high as they 
+were with copper, within the level of statistical uncertainty because of 
+our small sample size.
+
+The experiments with copper were a lot more consistent, though, as it 
 seemed the brittle aluminium got tore off by the magnetic stress too soon, 
 before peak fields were achieved. Evidence of this is visible in figures 
-\ref{plasma1} and \ref{plasma2}: the field was increasing and clearly hadn't 
-reached it peak at the moment the coil disintegrated and a plasma was formed.  
-Sadly, the plasma never was good enough a conductor or appeared too late for it 
-to generate an appreciable field.
+\ref{plasma1} and \ref{plasma2} (page \pageref{plasma1}). The field was 
+still increasing and clearly hadn't reached it peak at the moment the coil 
+disintegrated and a plasma was formed. Sadly, the plasma never was good 
+enough a conductor or appeared too late for it to generate an appreciable 
+field.
+
+
+\subsection{Inductance of the single turn coil and effect on peak 
+field\label{secCoilInductance}}
+
+Having the extra voltage and current readings, we can also try finding 
+other interesting effects or phenomena. One such thing is that we are now 
+capable of finding the inductance of the single turn coil by ftting the 
+results to the model above.
+
+Our choice was to fit the current measurement in a similar fashion as we 
+did in section \ref{secIcalib}. The difference between the fitted 
+inductance and the parasitic inductance of the apparatus found in section 
+\ref{secIcalib} should give the inducance of the single turn coil.
+
+However, when plotting and fitting these curves, no significant deviation 
+was noted from the curves found in section \ref{secIcalib} (eg. figure 
+\ref{fitI800V} on page \pageref{fitI800V}). The small inductance of the 
+single turn coil is thus insignificant compared to the large inductance of 
+the rest of the apparatus.
+
+This has a few concequences regarding the peak field. For one, the energy 
+available in the capacitor gets distributed over the magnetic energy in the 
+single turn coil and the inductance of the rest of the circuit. Having such 
+high a parasitic inductance severely limits the energy available to the 
+coil.
+
+Secondly, having such a high total inductance lengthens the time until the 
+peak field is generated. This means the single turn coil has to stand up to 
+the large stresses for a longer period of time. This can of course be 
+mitigated by choosing a lower capacitance of the capacitor bank. In order 
+to store the same energy, however, the voltage of this bank will have to 
+rise. There is, however, a practical limit to this voltage \cite[herlach].  
+Voltages of 50/,kV and above become very difficult to handle.
+
+In order to generate higher peak fields, it would be wise to try and limit 
+the stray inductance of the circuit. It could also be beneficial to choose 
+a capacitor with a smaller capacitance (but higher rated voltage). One 
+remark here is that these operations both decrease the pulse duration, so 
+that any measurements in the high magnetic field need to be very fast.
+
+
+\subsection{Plasma conduction}
+
+\fig{width=0.95\textwidth}{plasmaArc}{Long exposure of the plasma during a 
+high energy pulse through an aluminum foil coil. The yellow colour of the 
+plasma is due to the yellow plastic used to block excess light and protect 
+the camera sensor.}
+
+A few microseconds after the coil is violently destroyed, a plasma is 
+formed because of the strong electric field as photographed in figures 
+\ref{plasmaArc} and \ref{fuckYeah}. This plasma of metal vapour starts to 
+conduct a short time later.
+
+We have observed this phenomenon a few times and chose to examine it in 
+more detail. The following results are obtained by using an aluminum foil 
+coil with a width of approximately 8\,cm.
+%CHECK DIE BREEDTE FF IN LABOBOEK XXX XXX
+
+An exampe has been plotted in figure \ref{plasma1}. Around time zero, the 
+magnetic field collapses as the coil disintegrates. The strong back emf 
+turns the current around for a very short period. After that, the plasma 
+current starts to flow.  Notice that the magnetic field doesn't collapse as 
+fast anymore as the new current keeps it up. The characteristic kink in the 
+current is present again.
+
+\fig{width=0.95\textwidth}{fuckYeah}{Long exposure of the plasma during a 
+violent high energy pulse through an aluminum foil coil. No background 
+light was added, all the light came from the plasma. Notice that the debris 
+violently fly away from the coil and thus protect the sample space.}
+
+\figOctave{plasma1}{An example of plasma conduction. The magnetic field 
+(blue) collapses slighty after $t=0$ as the coil disintegrates. A few 
+moments later, the plasma current (green) starts to flow, restoring some of 
+the field.}
+
+A similar plat is shown in figure \ref{plasma2}, where the coil 
+desintegrates at a field of 1\,T. The current is once again kinked and the 
+field follows a similar parttern as before. Note that the coil 
+disintegrated well before the maximim field was reached, thus a great deal 
+of potential was lost here. Of course, the coil was specially made from 
+thin aluminum foil to examine the effect of the plasma, not to generate a 
+high magnetic field.
+
+\figOctave{plasma2}{Another example of plasma conduction. The magnetic 
+field (blue) is plotted against the time. Note the kink in the current 
+(green).}
+
+
+\subsection{Power dissipated in the coil and plasma, their resitance and 
+coil deformation}
+
+Using the values calibrated in the previous section, one can easily 
+calculate the power dissipated or generated in the coil (and later on, in 
+the plasma) by multiplying them ($P = VI$).  Doing so presents us with a 
+plot like figure \ref{power}. This plot was generated by a full-energy 
+pulse through a copper coil of width 4\,mm. The discontinuity around 
+100$\mu$s is the moment the coil breaks, after which all current conduction 
+occurs through the plasma.
+
+At first sight, these results look sensible. The power dissipation of the 
+plasma can be modeled an that of a resistor with a small inductance.  
+Indeed, the power dissipated is mostly positive (because of the 
+resistance), but has some negative peaks (where some enery is received from 
+the magnetic field).
+
+However, when we integrate the power over time to find the total dissipated 
+energy, we find that it is a multiple (about 3 times) of the energy stored 
+in the capacitor! As this is physically impossible, we have to conclude 
+that either the voltage over or the current through the coil is measured 
+incorrectly. Since the voltage is measured directly, the current is 
+probably not completely right.  Our experience showed that shifting the 
+cables around a bit often could change the phase of the measured signal 
+varies a considerable amount.  Another problem is that the shunt used 
+consists of a piece of wire that has some unnegligible self-inductance, 
+meaning that it is not a linear component and thus can't be modeled as 
+such.
+
+\figOctave{power}{Power dissipated in the coil and plasma. The coil breaks 
+after 100$\mu$s. Qualitatively incorrect because more energy is dissipated 
+than is initially available in the capacitor}
+
+Although we can only determine some qualitative behaviour, we're sure that if a 
+method is used to determine the current with some degree of confidence, the 
+power can certainly be determined as well.
+
+Moreover, having a correct power measurement combined with a 
+$\derivs{B}{t}$ reading should allow us to get a rough estimate of the 
+deformation of the coil (when this survives multiple periods of the pulse, 
+before breaking).
+
+Indeed, the energy in the magnetic field can be crudely approximated by 
+$U_B = V B^2/2\mu_0$ (ignoring edge effects).  Thus, power dellivered to 
+the coil can be linked to the change in energy of the magnetic field. This 
+expected fieldchange can be linked to the measured fieldchange. Any 
+(downwards) deviations of the measured field from the expected field can be 
+linked to a volume (increase) of the coil, because $V$ is an explicit 
+fuction of the time $t$, meaning that it also plays a role in 
+$\derivs{U_b}{t}$.
+
+This could give some insight to the expansion velocity of the coil.  
+However, because the lack of precision measurements, such results are not 
+attainable with our setup.
+
 
 % vim: ft=tex

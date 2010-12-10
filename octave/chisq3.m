@@ -21,7 +21,7 @@ function [params, chsq, err] = chisq3(V0, Xv, as, bs, cs, ds, xs, ys)
 					%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					[v, i] = rlc(a, b, c, V0, xs);
 					%            L  R  dt
-					ysmodel = i * d / voltDiv; %Rshunt
+					ysmodel = i / voltDiv * d; %Rshunt
 					%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					chsqnow = sum((ys-ysmodel).^2);
 					if (chsqnow < chsq)

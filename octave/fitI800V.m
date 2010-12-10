@@ -7,23 +7,26 @@ Is = data(:,3);
 
 voltDiv = 838/18;
 
-start = 260; % precies begin
+start = 260; 
+fullstart = 250;
 stop = length(ts) - 300;
 %start = 400;
 
 Is = Is - mean(Is(1:100));
-fullIs = Is;
-fullts = ts;
+fullIs = Is(fullstart:end);
+fullts = ts(fullstart:end);
+
 
 ts = ts(start:stop);
 Is = Is(start:stop);
 
-plot(ts,Is/max(abs(Is)));
+plot(fullts,fullIs/max(abs(fullIs)));
 
-Ls  = linspace(7.7e-7, 8.4e-7, 20);
-Rs  = linspace(3.0e-3, 10e-3, 20);
-dts = linspace(-30, -15, 20) * 1e-6;
-Rshunts = linspace(0.1e-3, 10e-3, 30);
+Ls  = linspace(7.9e-7, 8.4e-7, 20);
+Rs  = linspace(6.0e-3, 9e-3, 20);
+dts = linspace(-30, -20, 20) * 1e-6;
+Rshunts = linspace(0.4e-3, 3e-3, 30);
+
 
 format short e;
 [params, chisq, err] = chisq3(V0, voltDiv, Ls, Rs, dts, Rshunts, ts, Is)
@@ -34,11 +37,14 @@ R  = params(2);
 dt = params(3);
 Rshunt = params(4);
 
-tsFit = [linspace(0,ts(1),10)'; ts];
+%tsFit = [linspace(0,ts(1),10)'; fullts];
+tsFit = linspace(min(0,ts(1)), fullts(end)*1.4,1000);
 [VsFit, IsFit] = rlc(L, R, dt, V0, tsFit);
 
-plot(ts*1e6, Is/Rshunt*voltDiv*1e-3, tsFit*1e6, IsFit*1e-3);
 
+plot(fullts*1e6, fullIs/Rshunt*voltDiv*1e-3, tsFit*1e6, IsFit*1e-3);
+
+axis([0,1000,0,1], 'autoy');
 
 
 name='fitI800V';

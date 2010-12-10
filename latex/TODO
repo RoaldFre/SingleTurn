@@ -1,0 +1,11 @@
+in de plots van plasma conduction (I en B op 1 plot), staat op de y as nu 
+gewoon B.
+Herschaal die curves zodat de axis gewoon met digits kan, en in caption zeg 
+je dan bijv: B in Tesla, I in kV ofzo. Dan moet je niet met twee verticale 
+axes werken.
+
+
+nalezen
+
+
+aanvullen waar nodig
