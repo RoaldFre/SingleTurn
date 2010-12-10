@@ -103,8 +103,8 @@ peak field is generated. This means the single turn coil has to stand up to
 the large stresses for a longer period of time. This can of course be 
 mitigated by choosing a lower capacitance of the capacitor bank. In order 
 to store the same energy, however, the voltage of this bank will have to 
-rise. There is, however, a practical limit to this voltage \cite[herlach].  
-Voltages of 50/,kV and above become very difficult to handle.
+rise. There is, however, a practical limit to this voltage \cite{herlach}.  
+Voltages of 50\,kV and above become very difficult to handle.
 
 In order to generate higher peak fields, it would be wise to try and limit 
 the stray inductance of the circuit. It could also be beneficial to choose 
@@ -128,40 +128,43 @@ conduct a short time later.
 We have observed this phenomenon a few times and chose to examine it in 
 more detail. The following results are obtained by using an aluminum foil 
 coil with a width of approximately 8\,cm.
-%CHECK DIE BREEDTE FF IN LABOBOEK XXX XXX
 
 An exampe has been plotted in figure \ref{plasma1}. Around time zero, the 
 magnetic field collapses as the coil disintegrates. The strong back emf 
 turns the current around for a very short period. After that, the plasma 
-current starts to flow.  Notice that the magnetic field doesn't collapse as 
-fast anymore as the new current keeps it up. The characteristic kink in the 
-current is present again.
+current starts to flow. Notice that the magnetic field doesn't collapse as fast 
+anymore as the new current keeps it up. The characteristic kink in the current 
+is present. The magnetic field never gets as strong as it was before anymore 
+because the resistance of the plasma is a lot higher and it is being blown away 
+from the sample space, as can clearly be seen in \ref{fuckYeah}
 
 \fig{width=0.95\textwidth}{fuckYeah}{Long exposure of the plasma during a 
-violent high energy pulse through an aluminum foil coil. No background 
-light was added, all the light came from the plasma. Notice that the debris 
-violently fly away from the coil and thus protect the sample space.}
+violent high energy pulse through an aluminum foil coil. No background light 
+was added, all the light came from the plasma. Notice that the debris violently 
+fly away from the coil and thus protect the sample space.}
 
 \figOctave{plasma1}{An example of plasma conduction. The magnetic field 
 (blue) collapses slighty after $t=0$ as the coil disintegrates. A few 
-moments later, the plasma current (green) starts to flow, restoring some of 
-the field.}
+moments later, the plasma current (green) starts to flow, restoring some of the 
+field. The current is in arbitrary units but the peak current is expected to be 
+around 15\,kA}
 
-A similar plat is shown in figure \ref{plasma2}, where the coil 
+A similar plot is shown in figure \ref{plasma2}, where the coil 
 desintegrates at a field of 1\,T. The current is once again kinked and the 
 field follows a similar parttern as before. Note that the coil 
-disintegrated well before the maximim field was reached, thus a great deal 
+disintegrated well before the maximum field was reached, thus a great deal 
 of potential was lost here. Of course, the coil was specially made from 
 thin aluminum foil to examine the effect of the plasma, not to generate a 
 high magnetic field.
 
 \figOctave{plasma2}{Another example of plasma conduction. The magnetic 
-field (blue) is plotted against the time. Note the kink in the current 
-(green).}
+field (blue) is plotted against the time. Note the kink in the current (green).  
+The current is in arbitrary units but the peak current is expected to be around 
+15\,kA}
 
 
-\subsection{Power dissipated in the coil and plasma, their resitance and 
-coil deformation}
+\subsection{Power dissipated in the coil and plasma, their resistance and coil 
+deformation}
 
 Using the values calibrated in the previous section, one can easily 
 calculate the power dissipated or generated in the coil (and later on, in 
@@ -190,7 +193,7 @@ meaning that it is not a linear component and thus can't be modeled as
 such.
 
 \figOctave{power}{Power dissipated in the coil and plasma. The coil breaks 
-after 100$\mu$s. Qualitatively incorrect because more energy is dissipated 
+after 100$\mu$s. Quantitatively incorrect because more energy is dissipated 
 than is initially available in the capacitor}
 
 Although we can only determine some qualitative behaviour, we're sure that if a 
@@ -202,14 +205,13 @@ $\derivs{B}{t}$ reading should allow us to get a rough estimate of the
 deformation of the coil (when this survives multiple periods of the pulse, 
 before breaking).
 
-Indeed, the energy in the magnetic field can be crudely approximated by 
-$U_B = V B^2/2\mu_0$ (ignoring edge effects).  Thus, power dellivered to 
-the coil can be linked to the change in energy of the magnetic field. This 
-expected fieldchange can be linked to the measured fieldchange. Any 
-(downwards) deviations of the measured field from the expected field can be 
-linked to a volume (increase) of the coil, because $V$ is an explicit 
-fuction of the time $t$, meaning that it also plays a role in 
-$\derivs{U_b}{t}$.
+Indeed, the energy in the magnetic field can be crudely approximated by $U_B = 
+V B^2/2\mu_0$ (ignoring edge effects).  Thus, power delivered to the coil can 
+be linked to the change in energy of the magnetic field. This expected change 
+in field strength can be linked to the measured change. Any (downwards) 
+deviations of the measured field from the expected field can be linked to a 
+volume (increase) of the coil, because $V$ is an explicit fuction of the time 
+$t$, meaning that it also plays a role in $\derivs{U_b}{t}$.
 
 This could give some insight to the expansion velocity of the coil.  
 However, because the lack of precision measurements, such results are not 

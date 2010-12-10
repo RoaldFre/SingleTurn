@@ -1,6 +1,6 @@
 [t,vp,i] = laad_data(93);
 b = bfield(t,vp*4);
-plot(t*1e6,-b,t*1e6,lowpass(i,0.2)/10);
+plot(t*1e6,-b,t*1e6,lowpass(i,0.2)/3.5);
 axis([0, 125, -0.15, 1]);
 
 name='plasma2';
