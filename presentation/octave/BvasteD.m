@@ -1,17 +1,19 @@
-function [v,b] = BvasteD(data, d, epsilon)
-	idx = find(abs(data(:,4) - d) <= epsilon);
-	v = data(idx,5);
-	b = data(idx,2);
-	h = scatter(v,b);
-	set(h, 'markersize', 2);
+data = load('../../data/piekveld.txt');
+d = 6;
+epsilon = 1;
 
-	name='BvasteD';
-	destdir = '../images';
-	relImgDir = 'images';
-	ylabrule='0.9cm';
-	xlab='$V$ (V)';
-	ylab='$B$ (T)';
-	width='700';
-	height='500';
-	makeGraph(name,destdir,relImgDir,xlab,ylab,ylabrule,width,height);
-end
+idx = find(abs(data(:,4) - d) <= epsilon);
+v = data(idx,5);
+b = data(idx,2);
+h = plot(v,b,'o');
+set(h, 'linewidth', 10);
+
+name='BvasteD';
+destdir = '../images';
+relImgDir = 'images';
+ylabrule='0.9cm';
+xlab='$V$ (V)';
+ylab='$B$ (T)';
+width='500';
+height='500';
+makeGraph(name,destdir,relImgDir,xlab,ylab,ylabrule,width,height);
